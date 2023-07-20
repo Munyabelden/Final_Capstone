@@ -4,6 +4,10 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
+    "react-router-dom": "^6.14.2",
+    "redux": "^4.2.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
