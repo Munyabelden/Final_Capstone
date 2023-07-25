@@ -1,4 +1,4 @@
-class Api::V1::ConsultationController < ApplicationController
+class Api::V1::ConsultationsController < ApplicationController
   before_action :set_consultation, only: [:show, :update, :destroy]
 
   # GET /consultations
