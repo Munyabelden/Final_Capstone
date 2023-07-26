@@ -5,10 +5,10 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import Hello from './components/Hello';
+import ConsultationForm from './components/ConsultationForm';
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route index element={<Hello />} />),
+  createRoutesFromElements(<Route index element={<ConsultationForm />} />),
 );
 
 function App() {

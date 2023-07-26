@@ -1,4 +1,5 @@
-class Api::V1::ConsultationsController < ApplicationController
+class Api::V1::ConsultationsController < ActionController::Base
+  protect_from_forgery with: :exception, prepend: true
   before_action :set_consultation, only: [:show, :update, :destroy]
 
   # GET /consultations

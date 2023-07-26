@@ -6,7 +6,7 @@ class CreateConsultations < ActiveRecord::Migration[7.0]
       t.integer :duration, null: false
       t.string :city, null: false
       t.date :date, null: false
-      t.column :type, :enum, null: false, default: 'online', enum_type: 'varchar'
+      t.column :consultation_type, :enum, null: false, default: 'online', enum_type: 'varchar'
       t.timestamps
     end
   end
