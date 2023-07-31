@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root "root#index"
 
   devise_for :users, path: '', path_names: {
-    sign_in: 'api/v1/login',
-    sign_out: 'api/v1/logout',
-    registration: 'api/v1/signup'
+    sign_in: 'api/v1/users/login',
+    sign_out: 'api/v1/users/logout',
+    registration: 'api/v1/users/signup'
   },
   controllers: {
     sessions: 'users/sessions',
