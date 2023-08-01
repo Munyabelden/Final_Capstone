@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_144953) do
     t.integer "duration", null: false
     t.string "city", null: false
     t.date "date", null: false
-    t.string "type", default: "online", null: false
+    t.string "consultation_type", default: "online", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_144953) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "jti", null: false
+    t.string "jti"
     t.string "first_name", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
