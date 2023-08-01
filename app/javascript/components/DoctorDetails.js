@@ -8,7 +8,7 @@ const DoctorDetails = () => {
 
   useEffect(() => {
     const getDoctor = async () => {
-      const result = await fetch(`http://localhost:3030/doctors/1`);
+      const result = await fetch(`http://localhost:3030/doctors/${params.id}`);
       const data = await result.json();
       console.log(data);
       setDoctor(data);
