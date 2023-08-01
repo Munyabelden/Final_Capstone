@@ -2,23 +2,15 @@ import React from 'react';
 
 import { Route, Routes, Outlet } from 'react-router-dom';
 import { Login, Signup } from './components';
-
+import Layout from './components/Layout';
 import DoctorDetails from './components/DoctorDetails';
-
-const Layout = () => (
-  <main>
-    <nav>Hello nav</nav>
-    <Outlet />
-  </main>
-);
 
 function App() {
   return (
     <div>
+      <Layout />
       <Routes>
-        <Route element={<Layout />}>
-          <Route path='/' element={<h1>Hello home</h1>} />
-        </Route>
+        
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/doctors/:id' element={<DoctorDetails />} />
