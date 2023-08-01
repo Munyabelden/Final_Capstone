@@ -1,46 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  Doctors: [],
+  doctors: [],
 };
 
-const DoctorsSlice = createSlice(
+const doctorsSlice = createSlice(
   {
-    name: 'Doctors',
+    name: 'doctors',
     initialState,
     reducers: {
       setDoctors(state, action) {
-        state.Doctors = action.payload;
+        state.doctors = action.payload;
       },
     },
   },
 );
 
-export const { setDoctors } = DoctorsSlice.actions;
+export const { setDoctors } = doctorsSlice.actions;
 
 const fetchDoctors = () => async (dispatch) => {
-  const response = await fetch('https://kelvin.com.com/api/v1/services');
+  const response = await fetch('https://book-flix.onrender.com/api/v1/services');
   const data = await response.json();
   dispatch(setDoctors(data));
 };
 
-const addMovie = (movie) => async (dispatch) => {
-  await fetch('https://kelvin.com/api/v1/services', {
+const addDoctor = (doctor) => async (dispatch) => {
+  await fetch('https://book-flix.onrender.com/api/v1/services', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(movie),
+    body: JSON.stringify(doctor),
   });
   dispatch(fetchDoctors());
 };
 
-const deleteMovie = (id) => async (dispatch) => {
-  await fetch(`https://kelvin.com/api/v1/services/${id}`, {
+const deleteDoctor = (id) => async (dispatch) => {
+  await fetch(`https://book-flix.onrender.com/api/v1/services/${id}`, {
     method: 'DELETE',
   });
   dispatch(fetchDoctors());
 };
 
-export { fetchDoctors, addMovie, deleteMovie };
-export default DoctorsSlice.reducer;
+export { fetchDoctors, addDoctor, deleteDoctor };
+export default doctorsSlice.reducer;

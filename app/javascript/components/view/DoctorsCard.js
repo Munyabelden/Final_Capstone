@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const DoctorCard = ({
-  name, specialization, bio, image, experience, rate, id,
+const DoctorsCard = ({
+  name, image, details, price, id,
 }) => {
-  const rating = Math.round(rate * 10) / 10;
+  const rating = Math.round((Math.random() * (5 - 4) + 4) * 10) / 10;
 
   return (
     <div>
@@ -17,9 +17,8 @@ const DoctorCard = ({
       >
         <img src={image} alt={name} className="doctor-image" />
         <h4 className="bold-font doctor-name">{name}</h4>
-        <p className="gray-font doctor-specialization">{specialization}</p>
         <hr className="dash" />
-        <div className="doctor-rating-exp">
+        <div className="doctor-rating-price">
           <span className="bold-font gray-font">
             <i className="fa-sharp fa-solid fa-star-half-stroke" />
             {' '}
@@ -27,24 +26,23 @@ const DoctorCard = ({
           </span>
           <span className="doctor-circle-splitter" />
           <span className="bold-font gray-font">
-            {experience}
-            years of experience
+            <i className="fa-solid fa-dollar-sign" />
+            {' '}
+            {price}
           </span>
         </div>
-        <p className="gray-font doctor-bio">{bio}</p>
+        <p className="gray-font doctor-details">{details}</p>
       </Link>
     </div>
   );
 };
 
-export default DoctorCard;
+export default DoctorsCard;
 
-DoctorCard.propTypes = {
+DoctorsCard.propTypes = {
   name: PropTypes.string.isRequired,
-  specialization: PropTypes.string.isRequired,
-  bio: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  experience: PropTypes.number.isRequired,
-  rate: PropTypes.number.isRequired,
+  details: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
 };

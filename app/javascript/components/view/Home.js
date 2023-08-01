@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigation, A11y } from 'swiper';
+import { Navigation, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import ServiceCard from './ServiceCard';
-import { fetchMovies } from '../../redux/MoviesSlice';
+import DoctorsCard from './DoctorsCard';
+import { fetchDoctors } from '../../redux/DoctorsSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const cards = useSelector((state) => state.movies.movies);
+  const cards = useSelector((state) => state.doctors.doctors);
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    dispatch(fetchDoctors());
   }, [dispatch]);
 
   const isMobile = window.innerWidth <= 768;
@@ -22,10 +22,10 @@ const Home = () => {
   return (
     <div className="home col-md col">
       <h1 className="bold-font homepage-heading">
-        OUR SERVICES
+        OUR DOCTORS
       </h1>
       <p className="gray-font">
-        Please select a Movie to reserve
+        Please select a Doctor to make an appointment
       </p>
       <hr className="dash home-dash" />
       <div className="carousel-container col-12">
@@ -41,7 +41,7 @@ const Home = () => {
             <SwiperSlide
               key={card.id}
             >
-              <ServiceCard
+              <DoctorsCard
                 name={card.name}
                 image={card.image}
                 details={card.details}
