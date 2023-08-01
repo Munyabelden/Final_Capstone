@@ -1,18 +1,26 @@
 import React from 'react';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from 'react-router-dom';
-import Hello from './components/Hello';
+import { Route, Routes, Outlet } from 'react-router-dom';
+import { Login, Signup } from './components';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(<Route index element={<Hello />} />),
+const Layout = () => (
+  <main>
+    <nav>Hello nav</nav>
+    <Outlet />
+  </main>
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path='/' element={<h1>Hello home</h1>} />
+        </Route>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Signup />} />
+      </Routes>
+    </div>
+  )
 }
 
 export default App;
