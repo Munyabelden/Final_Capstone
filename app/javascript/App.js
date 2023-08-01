@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { Route, Routes, Outlet } from 'react-router-dom';
 import { Login, Signup } from './components';
+
+import DoctorDetails from './components/DoctorDetails';
 
 const Layout = () => (
   <main>
@@ -18,6 +21,7 @@ function App() {
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Signup />} />
+        <Route path='/doctors/:id' element={<DoctorDetails />} />
       </Routes>
     </div>
   )
