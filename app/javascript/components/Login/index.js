@@ -13,14 +13,12 @@ const Login = ({ }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(data.email, data.password))
+    dispatch(login({ user: data}))
   }
 
   const handleOnChange = (e) => {
     setData({...data, [e.target.name]: e.target.value});
   }
-
-  console.log('data', data);
 
   return (
     <div>
