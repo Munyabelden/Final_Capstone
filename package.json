@@ -14,7 +14,7 @@
     "webpack": "^5.88.2"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --watch --config webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
