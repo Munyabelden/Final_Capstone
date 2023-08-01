@@ -6,9 +6,10 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import Hello from './components/Hello';
+import DoctorDetails from './components/DoctorDetails';
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route index element={<Hello />} />),
+  createRoutesFromElements(<Route index element={<DoctorDetails />} />),
 );
 
 function App() {
