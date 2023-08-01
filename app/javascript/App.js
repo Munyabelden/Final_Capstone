@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Route, Routes, Outlet } from 'react-router-dom';
 import { Login, Signup } from './components';
 
 import DoctorDetails from './components/DoctorDetails';
+import { useDispatch } from 'react-redux';
+import { setAuthentication } from './store/reducers/authSlice';
 
 const Layout = () => (
   <main>
@@ -13,6 +15,12 @@ const Layout = () => (
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setAuthentication())
+  }, [dispatch]);
+  
   return (
     <div>
       <Routes>

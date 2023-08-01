@@ -14,6 +14,7 @@ export const login = createAsyncThunk('login', async (userData, thunkAPI) => {
     const user = response.data.data;
     const token = response.headers.get('Authorization');
     localStorage.setItem("auth_token", token);
+    localStorage.setItem("user", JSON.stringify(user));
     setAuthToken(token);
     
     return {
@@ -35,6 +36,7 @@ export const signup = createAsyncThunk('signup', async (userData, thunkAPI) => {
     const user = response.data.data;
     const token = response.headers.get('Authorization');
     localStorage.setItem("auth_token", token);
+    localStorage.setItem("user", JSON.stringify(user));
     setAuthToken(token);
 
     return {
@@ -50,6 +52,7 @@ export const logout = createAsyncThunk('logout', async (_,thunkAPI) => {
   try {
     await axios.delete(`${rootUrl}/users/logout`);
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('user');
     setAuthToken('');
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message)
@@ -64,6 +67,29 @@ export const AuthSlice = createSlice({
     token: null,
     loading: false,
     error: false,
+  },
+  reducers: {
+    setAuthentication: (state) => {
+      const token = localStorage.getItem("auth_token");
+      const user = JSON.parse(localStorage.getItem("user"));
+      if(token && user){
+        setAuthToken(token);
+        return {
+          ...state,
+          isAuthenticated: true,
+          currentUser: user,
+          token: token,
+        }
+      } else {
+        setAuthToken('');
+        return {
+          ...state,
+          currentUser: null,
+          token: null,
+          isAuthenticated: false,
+        }
+      }
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -118,4 +144,5 @@ export const AuthSlice = createSlice({
   },
 });
 
+export const { setAuthentication } = AuthSlice.actions;
 export default AuthSlice.reducer;
