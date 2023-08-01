@@ -1,5 +1,3 @@
-// Home.js
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigation, A11y } from 'swiper';
@@ -9,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import DoctorCard from './DoctorCard';
+import { fetchDoctors } from '../../redux/DoctorsSlice';
 
 const Home = () => {
   const dispatch = useDispatch();

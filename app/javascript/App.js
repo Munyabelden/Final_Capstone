@@ -5,10 +5,10 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import Hello from './components/Hello';
+import Home from './components/Home';
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route index element={<Hello />} />),
+  createRoutesFromElements(<Route index element={<Home />} />),
 );
 
 function App() {
