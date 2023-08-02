@@ -47,7 +47,7 @@ const Register = ({}) => {
           <input type="password" name="password" id="password" onChange={handleOnChange} />
           <label htmlFor='confirm_password'>Confirm password</label>
           <input type="password" name="confirm_password" id="confirm_password" onChange={handleOnChange} />
-          <input type='submit' value={authLoading ? 'Signup' : 'Processing'} disabled={authLoading} />
+          <input type='submit' value={authLoading ? 'Processing' : 'Signup'} disabled={authLoading} />
         </form>
         <div className='auth-info-wrapper'>
           <span>Already have account? <Link to='/login'>Login here</Link></span>
