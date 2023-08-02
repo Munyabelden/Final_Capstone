@@ -18,7 +18,6 @@ class Api::V1::ConsultationsController < ApplicationController
     if @consultation.save
       render json: @consultation, status: :created, location: @consultation
     else
-      puts @consultation.errors.full_messages
       render json: @consultation.errors, status: :unprocessable_entity
     end
   end
