@@ -48,6 +48,12 @@ gem 'bootsnap', require: false
 # Use to didacte and auto correct ruby linter errore=s
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Gemfile
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
