@@ -4,10 +4,8 @@ const Layout = () => {
  return (
     <nav>
       <ul>
-        {
-          // <li><NavLink to = '/'>Doctors</NavLink></li>
-        }
-        <li><NavLink to = '/'>Login</NavLink></li>
+        <li><NavLink to = '/'>Doctors</NavLink></li>
+        <li><NavLink to = '/login'>Login</NavLink></li>
         <li><NavLink to = '/signup'>Sign up</NavLink></li>
         <li><NavLink to = '/consultationForm'>Book a Consultation</NavLink></li>
         {
