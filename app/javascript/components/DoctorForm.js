@@ -37,7 +37,7 @@ const DoctorForm = () => {
       <input
         type="text"
         id="name"
-        value={formData.name}
+        placeholder={formData.name}
         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
       />
 
@@ -45,39 +45,39 @@ const DoctorForm = () => {
       <input
         type="text"
         id="specialization"
-        value={formData.specialization}
+        placeholder={formData.specialization}
         onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
       />
 
-<label htmlFor="bio">Specialization:</label>
+<label htmlFor="bio">Bio:</label>
       <input
         type="text"
         id="bio"
-        value={formData.bio}
+        placeholder={formData.bio}
         onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
       />
 
-<label htmlFor="image">Specialization:</label>
+<label htmlFor="image">Image:</label>
       <input
         type="file"
         id="image"
-        value={formData.image}
+        placeholder={formData.image}
         onChange={(e) => setFormData({ ...formData, image: e.target.value })}
       />
 
-<label htmlFor="experience">Specialization:</label>
+<label htmlFor="experience">Experience:</label>
       <input
         type="text"
         id="experience"
-        value={formData.experience}
+        placeholder={formData.experience}
         onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
       />
 
-<label htmlFor="rate">Specialization:</label>
+<label htmlFor="rate">Rate ($):</label>
       <input
         type="number"
         id="rate"
-        value={formData.rate}
+        placeholder={formData.rate}
         onChange={(e) => setFormData({ ...formData, rate: e.target.value })}
       />
 
