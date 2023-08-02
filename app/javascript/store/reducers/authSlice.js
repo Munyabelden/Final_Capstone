@@ -65,8 +65,8 @@ export const AuthSlice = createSlice({
     currentUser: null,
     isAuthenticated: false,
     token: null,
-    loading: false,
-    error: false,
+    loading: true,
+    error: null,
   },
   reducers: {
     setAuthentication: (state) => {
@@ -79,6 +79,7 @@ export const AuthSlice = createSlice({
           isAuthenticated: true,
           currentUser: user,
           token: token,
+          loading: false,
         }
       } else {
         setAuthToken('');
@@ -87,6 +88,7 @@ export const AuthSlice = createSlice({
           currentUser: null,
           token: null,
           isAuthenticated: false,
+          loading: false,
         }
       }
     }

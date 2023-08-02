@@ -1,27 +1,33 @@
 import React, { useEffect } from 'react';
 
-import { Route, Routes, Outlet } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Login, Signup } from './components';
 import Layout from './components/Layout';
 import DoctorDetails from './components/DoctorDetails';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAuthentication } from './store/reducers/authSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const { loading: authLoading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(setAuthentication())
   }, [dispatch]);
   
+  if (authLoading) {
+    return <p>Loading...!</p>
+  }
+
   return (
     <div>
-      <Layout />
       <Routes>
-        
+        <Route element={<Layout />} >
+          <Route path='/' element={<h1>Hello from Home</h1>} />
+          <Route path='/doctors/:id' element={<DoctorDetails />} />
+        </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/doctors/:id' element={<DoctorDetails />} />
       </Routes>
     </div>
   )
