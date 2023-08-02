@@ -15,10 +15,6 @@ function App() {
     dispatch(setAuthentication())
   }, [dispatch]);
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
-  }
-  
   if (authLoading) {
     return <p>Loading...!</p>
   }
