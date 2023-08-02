@@ -4,31 +4,31 @@ import { Login, Signup } from './components';
 import ConsultationForm from './components/ConsultationForm'
 import Layout from './components/Layout';
 import DoctorDetails from './components/DoctorDetails';
-import Home from './components/view/Home';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuthentication, selectIsAuthenticated } from './store/reducers/authSlice';
+import { setAuthentication } from './store/reducers/authSlice';
 
 function App() {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const { loading: authLoading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(setAuthentication())
   }, [dispatch]);
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
+  if (authLoading) {
+    return <p>Loading...!</p>
   }
-  
+
   return (
     <div>
-      <Layout />
       <Routes>
-        <Route path='/' element={ <Home />} />
+        <Route element={<Layout />} >
+          <Route path='/' element={<h1>Hello from Home</h1>} />
+          <Route path='/doctors/:id' element={<DoctorDetails />} />
+          <Route path='/consultationForm' element={<ConsultationForm />} />
+        </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/doctors/:id' element={<DoctorDetails />} />
-        <Route path='/consultationForm' element={<ConsultationForm />} />
       </Routes>
     </div>
   )
