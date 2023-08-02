@@ -18,6 +18,7 @@ const Layout = () => {
           <li><NavLink to='/login'>Login</NavLink></li>
           <li><NavLink to='/signup'>Sign up</NavLink></li>
           <li><NavLink to='/consultationForm'>Book a Consultation</NavLink></li>
+          <li><NavLink to='/my-reservations'>My Reservations</NavLink></li>
           {
             // <li><NavLink to = '/'>Add Doctors</NavLink></li>
             // <li><NavLink to = '/'>Delete Doctors</NavLink></li>
