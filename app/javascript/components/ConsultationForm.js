@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch,  useSelector } from 'react-redux';
 import { createConsultation } from '../store/reducers/consultationReducer.js';
 
 const ConsultationForm = () => {
   const dispatch = useDispatch();
+  const currentUserData = useSelector((state) => state.user);
+
   const [formData, setFormData] = useState({
-    user_id: 1,
+    user_id: currentUserData.user_id,
     doctor_id: 2,
     duration: 60,
     city: 'New York',
     date: '2023-07-27',
     consultation_type: 'online',
   });
+
+  // useEffect(() => {
+  //   if (currentUserData.user_firstname) {
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       user_: currentUserData.user_firstname,
+  //     }));
+  //   }
+  // }, [currentUserData.user_firstname]);
 
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
@@ -23,12 +34,12 @@ const ConsultationForm = () => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <label htmlFor="user_id">User ID:</label>
+      <label htmlFor="user_id">Name:</label>
       <input
         type="text"
         id="user_id"
-        value={formData.user_id}
-        onChange={(e) => setFormData({ ...formData, user_id: e.target.value })}
+        value={formData.user_name}
+        onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
       />
 
       <label htmlFor="doctor_id">Doctor ID:</label>
@@ -63,7 +74,6 @@ const ConsultationForm = () => {
       >
         <option value="2023-07-27">July 27, 2023</option>
         <option value="2023-07-28">July 28, 2023</option>
-        {/* Add more options as needed */}
       </select>
 
       <label htmlFor="type">Consultation Type:</label>
@@ -74,7 +84,6 @@ const ConsultationForm = () => {
       >
         <option value="online">Online</option>
         <option value="in-person">In-person</option>
-        {/* Add more options as needed */}
       </select>
       <input type="hidden" name="authenticity_token" value={csrfToken} />
       <button type="submit">Create Consultation</button>
