@@ -206,7 +206,7 @@ If you like this project please follow me on github
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse and my Coding partners.
+We would like to thank Murat Korkmaz on Behance for the original idea and Microverse.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
