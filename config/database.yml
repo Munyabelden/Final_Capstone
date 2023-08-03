@@ -3,8 +3,9 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+
   username: postgres
-  password: Yumzaa#1
+  password: 123$$$sss
   host: localhost
 
 development:
