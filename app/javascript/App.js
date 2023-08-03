@@ -3,11 +3,11 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import ConsultationForm from './components/ConsultationForm';
 import DoctorForm from './components/DoctorForm'
 import { Login, MyReservations, Signup } from './components';
-import ConsultationForm from './components/ConsultationForm'
 import Layout from './components/Layout';
 import DoctorDetails from './components/DoctorDetails';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthentication } from './store/reducers/authSlice';
+import Home from './components/view/Home';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function App() {
     <div>
       <Routes>
         <Route element={<Layout />} >
-          <Route path='/' element={<h1>Hello from Home</h1>} />
+          <Route path='/' element={<Home />} />
           <Route path='/doctors/:id' element={<DoctorDetails />} />
           <Route path='/consultationForm' element={<ConsultationForm />} />
           <Route path='/doctorForm' element={<DoctorForm />} />

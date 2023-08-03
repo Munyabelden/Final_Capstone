@@ -1,41 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchConsultations } from '../../store/reducers/consultationReducer';
 
 const MyReservations = ({}) => {
-  const consultations = [
-    {
-      name: "Meet with D. A.K. Hasan",
-      type: 'Online',
-      location: 'Online',
-      date: '2023-01-23',
-    },
-    {
-      name: "Meet with D. A.K. Hasan",
-      type: 'Online',
-      location: 'Online',
-      date: '2023-01-23',
-    },
-    {
-      name: "Meet with D. A.K. Hasan",
-      type: 'Inplace',
-      location: 'City hall, down town, New York',
-      date: '2023-01-23',
-    },
-    {
-      name: "Meet with D. A.K. Hasan",
-      type: 'Inplace',
-      location: 'City hall, down town, New York',
-      date: '2023-01-23',
-    },
-  ]
+  const dispatch = useDispatch()
+  const { consultations } = useSelector((state) => state.consultations)
+
+
+  useEffect(() => {
+    dispatch(fetchConsultations)
+  }, [dispatch])
+
   return (
     <div className='consultation-container'>
       <ul className='list-container'>
         {consultations.map((c, index) => (
           <li className='list-item' key={index}>
-            <h3 className='consultation-title'>{c.name}</h3>
+            <h3 className='s-title'>{c.name}</h3>
             <span className='consultation-type'>
               <i class="fa-solid fa-house-medical"></i>
-              {c.type}
+              {c.consultation_type}
             </span>
             <span className='consultation-date'>
               <i class="fa-solid fa-calendar-days"></i>
@@ -43,7 +27,7 @@ const MyReservations = ({}) => {
             </span>
             <p className='consultation-location'>
               <i class="fa-solid fa-location-dot"></i>
-              {c.location}
+              {c.city}
             </p>
           </li>
         ))}
