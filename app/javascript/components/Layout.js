@@ -34,7 +34,7 @@ const Layout = () => {
           </li>
           <li>
             <NavLink to="/consultationForm" isActive={() => location.pathname === '/consultationForm'} activeClassName="active-link">
-              Book a Consultation
+              Book Consultation
             </NavLink>
           </li>
           <li>
@@ -58,6 +58,9 @@ const Layout = () => {
             </NavLink>
           </li>
         </ul>
+        <div>
+          <p>Nurturing Health, Inspiring Hope: Uniting for a Healthier Future</p>
+        </div>
       </nav>
       <main>
         <Outlet />

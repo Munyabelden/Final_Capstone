@@ -1,39 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchConsultations } from '../../store/reducers/consultationReducer';
 
-const MyReservations = ({}) => {
-  const dispatch = useDispatch()
-  const { consultations } = useSelector((state) => state.consultations)
-
+const MyReservations = () => {
+  const dispatch = useDispatch();
+  const currentUserData = useSelector((state) => state.auth.currentUser);
+  const consultations = useSelector((state) => state.consultation.consultations);
+  const isLoading = useSelector((state) => state.consultation.isLoading);
 
   useEffect(() => {
-    dispatch(fetchConsultations)
-  }, [dispatch])
+    dispatch(fetchConsultations());
+  }, [dispatch]);
+
+  if (!isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  const userConsultations = consultations.filter((c) => c.user_id === currentUserData.id);
 
   return (
     <div className='consultation-container'>
       <ul className='list-container'>
-        {consultations.map((c, index) => (
+        {userConsultations.map((c, index) => (
           <li className='list-item' key={index}>
-            <h3 className='s-title'>{c.name}</h3>
+            <h3 className='s-title'>{c.duration}minutes</h3>
             <span className='consultation-type'>
-              <i class="fa-solid fa-house-medical"></i>
+              <i className="fa-solid fa-house-medical"></i>
               {c.consultation_type}
             </span>
             <span className='consultation-date'>
-              <i class="fa-solid fa-calendar-days"></i>
+              <i className="fa-solid fa-calendar-days"></i>
               {c.date}
             </span>
             <p className='consultation-location'>
-              <i class="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
               {c.city}
             </p>
           </li>
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default MyReservations;

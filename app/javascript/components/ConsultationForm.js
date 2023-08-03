@@ -17,23 +17,14 @@ const ConsultationForm = () => {
     user_id: currentUserData.id,
     doctor_id: doctor.doctor_id,
     duration: 60,
-    city: 'New York',
-    date: '2023-07-27',
+    city: 'City',
+    date: 'yyyy-mm-dd',
     consultation_type: 'online',
   });
 
   useEffect(() => {
     dispatch(fetchDoctors());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (doctors.length > 0) {
-      console.log('Names of available doctors:');
-      doctors.forEach((doctor) => {
-        console.log(doctor.name);
-      });
-    }
-  }, [doctors]);
 
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
@@ -51,7 +42,13 @@ const ConsultationForm = () => {
       date,
       consultation_type,
     };
-    dispatch(createConsultation(consultationData));
+    dispatch(createConsultation(consultationData))
+    .then(() => {
+      navigate('/my-reservations');
+    })
+    .catch((error) => {
+      console.error('Error creating consultation:', error);
+    });
   };  
 
   return (
