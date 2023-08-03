@@ -5,10 +5,11 @@ const DoctorDetails = () => {
 
   const [doctor, setDoctor] = useState({});
   const params = useParams();
+  console.log(params);
 
   useEffect(() => {
     const getDoctor = async () => {
-      const result = await fetch(`http://localhost:3000/doctors/${params.id}}`);
+      const result = await fetch(`http://localhost:3030/doctors/1`);
       const data = await result.json();
       console.log(data);
       setDoctor(data);

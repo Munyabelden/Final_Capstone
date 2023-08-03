@@ -7,7 +7,7 @@ const DeleteDoctor = ({ id }) => {
   const dispatch = useDispatch();
   return (
 
-    <button type="button"  onClick={() => dispatch(deleteDoctor({ id }))}>
+    <button type="button" className='my-button' onClick={() => dispatch(deleteDoctor({ id }))}>
       Delete
     </button>
   );
