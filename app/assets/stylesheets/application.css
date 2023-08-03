@@ -91,7 +91,7 @@ ul li {
 
 .nav-bar div p {
   font-size: 15px;
-  font-weight: 600px;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

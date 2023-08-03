@@ -57,7 +57,6 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
