@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch,  useSelector } from 'react-redux';
-import { createConsultation } from '../store/reducers/consultationReducer.js';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { createConsultation } from '../store/reducers/consultationReducer';
+import { fetchDoctors } from '../store/reducers/doctorSlice';
 
 const ConsultationForm = () => {
   const dispatch = useDispatch();
+  const params = useParams();
+
   const currentUserData = useSelector((state) => state.auth.currentUser) || {};
+  const doctors = useSelector((state) => state.doctors.doctors) || [];
+  const [selectedDoctorId, setSelectedDoctorId] = useState('');
+  const [selectedDoctorName, setSelectedDoctorName] = useState('');
 
   const [formData, setFormData] = useState({
     user_id: currentUserData.id,
@@ -15,16 +22,33 @@ const ConsultationForm = () => {
     consultation_type: 'online',
   });
 
+  useEffect(() => {
+    dispatch(fetchDoctors());
+  }, [dispatch]);
+
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const formDataWithToken = { ...formData, authenticity_token: csrfToken };
     dispatch(createConsultation(formData));
   };
 
+  const handleDoctorInputChange = (e) => {
+    const { value } = e.target;
+    setSelectedDoctorName(value);
+  
+    const selectedDoctor = doctors.find((doctor) => doctor.name === value);
+  
+    if (selectedDoctor) {
+      setSelectedDoctorId(selectedDoctor.id);
+    } else {
+      setSelectedDoctorId('');
+    }
+  };  
+
   return (
     <div className='cons-contianer'>
+      <h2 className='title'>Book Consultation</h2>
       <form onSubmit={handleFormSubmit} className='consaltation-form'>
         <label htmlFor="user_id">Name:</label>
         <input
@@ -33,21 +57,14 @@ const ConsultationForm = () => {
           value={currentUserData.first_name}
           onChange={(e) => setFormData({ ...formData, user_id: currentUserData.id })}
         />
-{
-        // <label htmlFor="doctor_id">Doctor ID:</label>
-        // <select
-        //   id="date"
-        //   value={selectedDoctorId}
-        //   onChange={(e) => setSelectedDoctorId(e.target.value)}
-        // >
-        //   <option value="">Select a Doctor</option>
-        //   {doctors.map((doctor) => (
-        //     <option key={doctor.id} value={doctor.id}>
-        //       {doctor.name}
-        //     </option>
-        //   ))}
-        // </select>
-  }
+
+        <label htmlFor="doctor_id">Doctor ID:</label>
+        <input
+          type="text"
+          id="doctor_name"
+          value={selectedDoctorName}
+          onChange={handleDoctorInputChange}
+        />
 
         <label htmlFor="duration">Duration (minutes):</label>
         <input
