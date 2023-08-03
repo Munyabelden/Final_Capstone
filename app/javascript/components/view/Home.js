@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import DoctorsCard from './DoctorsCard';
-import { fetchDoctors } from '../../redux/DoctorsSlice';
+import { fetchDoctors } from '../../store/reducers/doctorSlice';
 
 const Home = () => {
   const dispatch = useDispatch();

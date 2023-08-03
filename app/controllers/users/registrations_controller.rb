@@ -20,7 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-
   # GET /resource/sign_up
   # def new
   #   super

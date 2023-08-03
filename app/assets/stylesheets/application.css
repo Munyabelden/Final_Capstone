@@ -1,7 +1,7 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
- @import url('./auth.css');
- @import url('./my-reservation.css');
- 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('./auth.css');
+@import url('./my-reservation.css');
+
 *,
 *::before,
 *::after {
@@ -23,7 +23,14 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6, ul, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
   margin: 0;
 }
 
@@ -43,16 +50,16 @@ ul li {
   width: 35vh;
   min-height: 100vh;
   z-index: 1000;
-  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .nav-bar a,
-.logout-btn  {
-  font-weight: 22px;
+.logout-btn {
+  font-size: 22px;
 }
 
 .nav-bar a.active {
-  background-color: #8DE801;
+  background-color: #8de801;
   padding: 2px 8px;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -74,12 +81,6 @@ ul li {
   cursor: pointer;
 }
 
-.nav-bar {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
 .nav-bar img {
   width: 150px;
 }
@@ -97,14 +98,14 @@ ul li {
   .menu-icon,
   .exit {
     display: block;
-    top: 15;
-    left: 15;
+    top: 15px;
+    left: 15px;
   }
 
   .exit {
     position: absolute;
     margin-top: -15px;
-    left: 30%
+    left: 30%;
   }
 
   .nav-bar {
@@ -170,7 +171,7 @@ ul li {
 }
 
 .consaltation-form button {
-  background: #8DE801;
+  background: #8de801;
   color: #171818;
   border: none;
   padding: 10px 15px;

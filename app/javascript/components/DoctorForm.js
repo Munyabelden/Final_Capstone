@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch,  useSelector } from 'react-redux';
 
 const DoctorForm = () => {
-  const dispatch = useDispatch();
-  const currentUserData = useSelector((state) => state.user);
-
   const [formData, setFormData] = useState({
     name: 'Dr. Mudasir Issah',
     specialization: 'Physician Assistant',
@@ -14,23 +11,12 @@ const DoctorForm = () => {
     rate: 15,
   });
 
-  // useEffect(() => {
-  //   if (currentUserData.user_firstname) {
-  //     setFormData((prevFormData) => ({
-  //       ...prevFormData,
-  //       user_: currentUserData.user_firstname,
-  //     }));
-  //   }
-  // }, [currentUserData.user_firstname]);
-
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const formDataWithToken = { ...formData, authenticity_token: csrfToken };
-    
   };
- 
+
   return (
     <div className='cons-contianer'>
     <h2 className='title'>Add Doctor</h2>
@@ -51,7 +37,7 @@ const DoctorForm = () => {
         onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
       />
 
-<label htmlFor="bio">Bio:</label>
+   <label htmlFor="bio">Bio:</label>
       <input
         type="text"
         id="bio"
@@ -59,7 +45,7 @@ const DoctorForm = () => {
         onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
       />
 
-<label htmlFor="image">Image:</label>
+  <label htmlFor="image">Image:</label>
       <input
         type="text"
         id="image"

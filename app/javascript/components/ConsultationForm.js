@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate  } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createConsultation } from '../store/reducers/consultationReducer';
 import { fetchDoctors } from '../store/reducers/doctorSlice';
@@ -31,9 +31,9 @@ const ConsultationForm = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const selectedDoctor = doctors.find((doctor) => doctor.name === formData.doctor_id);
-    console.log(selectedDoctor)
-  
+
     const { user_id, duration, city, date, consultation_type } = formData;
+
     const consultationData = {
       user_id,
       doctor_id: selectedDoctor.id,
@@ -42,61 +42,60 @@ const ConsultationForm = () => {
       date,
       consultation_type,
     };
-    
+
     dispatch(createConsultation(consultationData))
-    .then(() => {
-      navigate('/my-reservations');
-    })
-    .catch((error) => {
-      console.error('Error creating consultation:', error);
-    });
+      .then(() => {
+        navigate('/my-reservations');
+      })
+      .catch((error) => {
+        error('Error creating consultation:', error);
+      });
   };  
 
   return (
-    <div className='cons-contianer'>
-      <h2 className='title'>Book Consultation</h2>
-      <form onSubmit={handleFormSubmit} className='consaltation-form'>
-        <label htmlFor="user_id">Name:</label>
+    <div className="cons-contianer">
+      <h2 className="title">Book Consultation</h2>
+      <form onSubmit={handleFormSubmit} className="consaltation-form">
         <input
           type="text"
           id="user_id"
           value={currentUserData.first_name}
           onChange={(e) => setFormData({ ...formData, user_id: currentUserData.id })}
+          placeholder="Your name"
         />
 
-        <label htmlFor="doctor_id">Doctor ID:</label>
         <input
           type="text"
           id="doctor_name"
           value={formData.doctor_id}
           onChange={(e) => setFormData({ ...formData, doctor_id: e.target.value })}
+          placeholder="Doctor ID"
         />
 
-        <label htmlFor="duration">Duration (minutes):</label>
         <input
           type="number"
           id="duration"
           value={doctor.name}
           onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+          placeholder="Duration in minutes"
         />
 
-        <label htmlFor="city">City:</label>
         <input
           type="text"
           id="city"
           value={formData.city}
           onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+          placeholder="City"
         />
 
-        <label htmlFor="date">Date:</label>
         <input
           type="date"
           id="date"
           value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-        />        
+          placeholder="YYYY-MM-DD"
+        />
 
-        <label htmlFor="type">Consultation Type:</label>
         <select
           id="type"
           value={formData.type}
