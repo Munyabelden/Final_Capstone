@@ -4,6 +4,8 @@
 
   <h3><b>Healthnet App</b></h3>
 
+  <img align="center" src="Logo.png"/>
+
 </div>
 
 # 📗 Table of Contents
@@ -29,8 +31,11 @@
 # 📖 [Healthnet App] <a name="The Healthnet App helps you to find doctors and book appointment for various healthcare consultations."></a>
 
 
-**[Healthnet App]** is based on Ruby Language and Rails framework.
+**[NetCare App]** is based on Ruby on Rails base app for that allows petient and doctors to get in touch and schedule consultations.
+ 
+ Below is the link to the database diagram
 
+<img src="drawSQL-netcare-export-2023-08-03.png" alt="Vehicle appointment diagram" />
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -69,40 +74,79 @@ To get a local copy up and running, follow these steps.
 - clone this https://github.com/Munyabelden/Final_Capstone.git
 
 
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
 ### Prerequisites
 
 In order to run this project you need:
-<ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby and Ruby on Rails</a></li>
-  </ul>
-  
+
+- [ ] Ruby: [Installation Guide](https://www.ruby-lang.org/en/documentation/installation/)
+- [ ] Ruby on Rails: [Installation Guide](https://guides.rubyonrails.org/getting_started.html#installing-rails)
+- [ ] PostgreSQL: [Installation Guide](https://www.postgresql.org/docs/)
+
 ### Setup
 
 Clone this repository to your desired folder:
-<ul>
-<li>cd my-folder</li>
-<li>git clone https://github.com/Munyabelden/Final_Capstone.git</li>
-</ul>
+
+```sh
+  cd Rails_Capstone
+  git clone https://github.com/Munyabelden/Rails_Capstone.git
+```
 
 ### Install
 
 Install this project with:
-<ul>
-<li>bundle install</li>
-</ul>
+
+```sh
+  cd Rails_Capstone
+  bundle install
+```
+```sh
+  gem install rspec
+```
+```sh
+  gem install --no-document rubocop -v '>= 1.0, < 2.0' # https://docs.rubocop.org/en/stable/installation/
+```
+```sh
+  npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+```
 
 ### Usage
 
 To run the project, execute the following command:
-<ul>
-<li>rails s</li>
-</ul>
+
+```sh
+  rails db:create
+```
+```sh
+  rails db:migrate
+```
+```sh
+  rails server
+```
 
 ### Run tests
 
-To run tests, run the following command: Install through : gem install rspec
+To run tests, run the following command:
 
-Run: rspec to run tests
+```sh
+  rubocop --color
+```
+```sh
+  npx stylelint "**/*.{css,scss}"
+```
+```sh
+  rspec
+```
+### Deployment
+
+You can deploy this project using:
+
+- [ ] Use render or any other hosting of your choosing
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
