@@ -27,7 +27,7 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "build": "webpack --watch --config webpack.config.js"
+    "build": "webpack --config webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",

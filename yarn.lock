@@ -5572,7 +5572,7 @@ webidl-conversions@^3.0.0:
 
 webpack-cli@^5.1.4:
   version "5.1.4"
-  resolved "https://registry.npmjs.org/webpack-cli/-/webpack-cli-5.1.4.tgz"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-5.1.4.tgz#c8e046ba7eaae4911d7e71e2b25b776fcc35759b"
   integrity sha512-pIDJHIEI9LR0yxHXQ+Qh95k2EvXpWzZ5l+d+jIo+RdSm9MiHfzazIxwwni/p7+x4eJZuvG1AJwgC4TNQ7NRgsg==
   dependencies:
     "@discoveryjs/json-ext" "^0.5.0"
@@ -5604,7 +5604,7 @@ webpack-sources@^3.2.3:
 
 webpack@^5.88.2:
   version "5.88.2"
-  resolved "https://registry.npmjs.org/webpack/-/webpack-5.88.2.tgz"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.88.2.tgz#f62b4b842f1c6ff580f3fcb2ed4f0b579f4c210e"
   integrity sha512-JmcgNZ1iKj+aiR0OvTYtWQqJwq37Pf683dY9bVORwVbUrDhLhdn/PlO2sHsFHPkj7sHNQF3JwaAkp49V+Sq1tQ==
   dependencies:
     "@types/eslint-scope" "^3.7.3"
