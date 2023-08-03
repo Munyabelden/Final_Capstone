@@ -37,6 +37,7 @@
   }
 
   .nav-bar {
+    background: #fff;
     display: none;
     width: 70vh;
   }

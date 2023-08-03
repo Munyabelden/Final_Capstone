@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createConsultation } from '../store/reducers/consultationReducer';
 import { fetchDoctors } from '../store/reducers/doctorSlice';
@@ -7,15 +7,15 @@ import { fetchDoctors } from '../store/reducers/doctorSlice';
 const ConsultationForm = () => {
   const dispatch = useDispatch();
   const params = useParams();
+  const navigate = useNavigate();
 
   const currentUserData = useSelector((state) => state.auth.currentUser) || {};
-  const doctors = useSelector((state) => state.doctors.doctors) || [];
-  const [selectedDoctorId, setSelectedDoctorId] = useState('');
-  const [selectedDoctorName, setSelectedDoctorName] = useState('');
+  const doctor = useSelector((state) => state.doctors.doctor[params.doctor_id]) || {};
+  const doctors = useSelector((state) => state.doctors.doctors);
 
   const [formData, setFormData] = useState({
     user_id: currentUserData.id,
-    doctor_id: 2,
+    doctor_id: doctor.doctor_id,
     duration: 60,
     city: 'New York',
     date: '2023-07-27',
@@ -26,24 +26,32 @@ const ConsultationForm = () => {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (doctors.length > 0) {
+      console.log('Names of available doctors:');
+      doctors.forEach((doctor) => {
+        console.log(doctor.name);
+      });
+    }
+  }, [doctors]);
+
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(createConsultation(formData));
-  };
-
-  const handleDoctorInputChange = (e) => {
-    const { value } = e.target;
-    setSelectedDoctorName(value);
+    const selectedDoctor = doctors.find((doctor) => doctor.name === formData.doctor_id);
+    console.log(selectedDoctor)
   
-    const selectedDoctor = doctors.find((doctor) => doctor.name === value);
-  
-    if (selectedDoctor) {
-      setSelectedDoctorId(selectedDoctor.id);
-    } else {
-      setSelectedDoctorId('');
-    }
+    const { user_id, duration, city, date, consultation_type } = formData;
+    const consultationData = {
+      user_id,
+      doctor_id: selectedDoctor.id,
+      duration,
+      city,
+      date,
+      consultation_type,
+    };
+    dispatch(createConsultation(consultationData));
   };  
 
   return (
@@ -62,15 +70,15 @@ const ConsultationForm = () => {
         <input
           type="text"
           id="doctor_name"
-          value={selectedDoctorName}
-          onChange={handleDoctorInputChange}
+          value={formData.doctor_id}
+          onChange={(e) => setFormData({ ...formData, doctor_id: e.target.value })}
         />
 
         <label htmlFor="duration">Duration (minutes):</label>
         <input
           type="number"
           id="duration"
-          value={formData.duration}
+          value={doctor.name}
           onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
         />
 
