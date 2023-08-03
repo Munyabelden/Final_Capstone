@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Navigate, Outlet, useLocation } from 'react-router-dom';
 import Logo from '../images/Logo.png';
+import { logout } from '../store/reducers/authSlice';
 
 const Layout = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const dispatch = useDispatch(); 
   const location = useLocation();
   const [isNavVisible, setNavVisible] = useState(false);
 
@@ -34,7 +36,7 @@ const Layout = () => {
           </li>
           <li>
             <NavLink to="/consultationForm" isActive={() => location.pathname === '/consultationForm'} activeClassName="active-link">
-              Book a Consultation
+              Book Consultation
             </NavLink>
           </li>
           <li>
@@ -47,17 +49,14 @@ const Layout = () => {
               My Reservations
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/login" isActive={() => location.pathname === '/login'} activeClassName="active-link">
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup" isActive={() => location.pathname === '/signup'} activeClassName="active-link">
-              Sign up
-            </NavLink>
+          <li className='logout-btn' onClick={() => dispatch(logout())}>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Logout
           </li>
         </ul>
+        <div>
+          <p>Nurturing Health, Inspiring Hope: Uniting for a Healthier Future</p>
+        </div>
       </nav>
       <main>
         <Outlet />

@@ -32,25 +32,37 @@ ul li {
 }
 
 .nav-bar {
+  top: 0;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #fff;
   align-items: center;
   padding-block: 5vh;
-  padding-inline: 10px;
   width: 35vh;
+  min-height: 100vh;
+  z-index: 1000;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
 }
 
-.nav-bar a {
+.nav-bar a,
+.logout-btn  {
   font-weight: 22px;
 }
 
-.active-link{
+.nav-bar a.active {
   background-color: #8DE801;
+  padding: 2px 8px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
-.menu-icon {
+.menu-icon,
+.exit {
   display: none;
   position: fixed;
   top: 20px;
@@ -72,19 +84,43 @@ ul li {
   width: 150px;
 }
 
+.nav-bar div {
+  padding: 15px;
+}
+
+.nav-bar div p {
+  font-size: 15px;
+  font-weight: 600px;
+}
+
 @media (max-width: 768px) {
-  .menu-icon {
+  .menu-icon,
+  .exit {
     display: block;
+    top: 15;
+    left: 15;
+  }
+
+  .exit {
+    position: absolute;
+    margin-top: -15px;
+    left: 30%
   }
 
   .nav-bar {
     background: #fff;
     display: none;
     width: 70vh;
+    min-height: 100vh;
   }
 
   .nav-bar.show {
     display: block;
+  }
+
+  .consaltation-form {
+    margin: 20px auto;
+    width: 100%;
   }
 }
 
@@ -135,7 +171,7 @@ ul li {
 
 .consaltation-form button {
   background: #8DE801;
-  color: #fff;
+  color: #171818;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
