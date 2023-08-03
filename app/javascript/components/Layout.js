@@ -25,29 +25,38 @@ const Layout = () => {
       </button>
       <nav className={`nav-bar ${isNavVisible ? 'show' : ''}`}>
         <img src={Logo} alt="Logo" />
-        <ul className="primary-navigation">
+        <button className='exit' onClick={toggleNav}>&times;</button>
+        <ul className={`primary-navigation ${isNavVisible ? 'show' : ''}`}>
           <li>
-            <NavLink exact to="/" activeClassName="active-link">
+            <NavLink exact to="/" isActive={() => location.pathname === '/'} activeClassName="active-link">
               Doctors
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" activeClassName="active-link">
+            <NavLink to="/consultationForm" isActive={() => location.pathname === '/consultationForm'} activeClassName="active-link">
+              Book a Consultation
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/doctorForm" isActive={() => location.pathname === '/doctorForm'} activeClassName="active-link">
+              Add Doctor
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-reservations" isActive={() => location.pathname === '/my-reservations'} activeClassName="active-link">
+              My Reservations
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" isActive={() => location.pathname === '/login'} activeClassName="active-link">
               Login
             </NavLink>
           </li>
           <li>
-            <NavLink to="/signup" activeClassName="active-link">
+            <NavLink to="/signup" isActive={() => location.pathname === '/signup'} activeClassName="active-link">
               Sign up
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/consultationForm" activeClassName="active-link">
-              Book a Consultation
-            </NavLink>
-          </li>
-          {/* <li><NavLink to="/">Add Doctors</NavLink></li>
-          <li><NavLink to="/">Delete Doctors</NavLink></li> */}
         </ul>
       </nav>
       <main>

@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_115907) do
     t.integer "duration", null: false
     t.string "city", null: false
     t.date "date", null: false
-    t.string "consultation_type", default: "online", null: false
+    t.string "type", default: "online", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

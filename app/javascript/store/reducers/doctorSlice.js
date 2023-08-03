@@ -32,7 +32,6 @@ const initialState = {
   isLoading: false,
   doctors: [],
   doctor: {},
-  reservations: [],
 };
 
 export const doctorSlice = createSlice({
