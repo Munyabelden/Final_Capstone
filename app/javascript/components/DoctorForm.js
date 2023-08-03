@@ -30,9 +30,11 @@ const DoctorForm = () => {
     const formDataWithToken = { ...formData, authenticity_token: csrfToken };
     
   };
-
+ 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <div className='cons-contianer'>
+    <h2 className='title'>Add Doctor</h2>
+    <form onSubmit={handleFormSubmit} className='consaltation-form'>
       <label htmlFor="name">Doctors name:</label>
       <input
         type="text"
@@ -59,9 +61,9 @@ const DoctorForm = () => {
 
 <label htmlFor="image">Image:</label>
       <input
-        type="file"
+        type="text"
         id="image"
-        placeholder={formData.image}
+        placeholder="Image URL"
         onChange={(e) => setFormData({ ...formData, image: e.target.value })}
       />
 
@@ -84,6 +86,7 @@ const DoctorForm = () => {
       <input type="hidden" name="authenticity_token" value={csrfToken} />
       <button type="submit">Create Doctor</button>
     </form>
+    </div>
   );
 };
 
