@@ -4,7 +4,7 @@ import { fetchConsultations } from '../../store/reducers/consultationReducer';
 
 const MyReservations = ({}) => {
   const dispatch = useDispatch()
-  const { consultations } = useSelector((state) => state.consultations)
+  const { consultations } = useSelector((state) => state.consultation)
 
 
   useEffect(() => {

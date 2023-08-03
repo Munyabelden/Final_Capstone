@@ -26,15 +26,6 @@ const ConsultationForm = () => {
     dispatch(fetchDoctors());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (doctors.length > 0) {
-      console.log('Names of available doctors:');
-      doctors.forEach((doctor) => {
-        console.log(doctor.name);
-      });
-    }
-  }, [doctors]);
-
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
   const handleFormSubmit = (e) => {
@@ -51,7 +42,14 @@ const ConsultationForm = () => {
       date,
       consultation_type,
     };
-    dispatch(createConsultation(consultationData));
+
+    dispatch(createConsultation(consultationData))
+    .then(() => {
+      navigate('/my-reservations');
+    })
+    .catch((error) => {
+      console.error('Error creating consultation:', error);
+    });
   };  
 
   return (
