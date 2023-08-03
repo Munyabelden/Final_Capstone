@@ -44,7 +44,8 @@ ul li {
   z-index: 1000;
 }
 
-.nav-bar a {
+.nav-bar a,
+.logout-btn  {
   font-weight: 22px;
 }
 
