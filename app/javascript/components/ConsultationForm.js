@@ -17,8 +17,8 @@ const ConsultationForm = () => {
     user_id: currentUserData.id,
     doctor_id: doctor.doctor_id,
     duration: 60,
-    city: 'New York',
-    date: '2023-07-27',
+    city: 'City',
+    date: 'yyyy-mm-dd',
     consultation_type: 'online',
   });
 
@@ -42,7 +42,13 @@ const ConsultationForm = () => {
       date,
       consultation_type,
     };
-    dispatch(createConsultation(consultationData));
+    dispatch(createConsultation(consultationData))
+    .then(() => {
+      navigate('/my-reservations');
+    })
+    .catch((error) => {
+      console.error('Error creating consultation:', error);
+    });
   };  
 
   return (

@@ -12,9 +12,6 @@ const MyReservations = () => {
     dispatch(fetchConsultations());
   }, [dispatch]);
 
-  console.log('isLoading:', isLoading);
-  console.log('consultations:', consultations);
-
   if (!isLoading) {
     return <div>Loading...</div>;
   }
