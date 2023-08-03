@@ -81,6 +81,10 @@ ul li {
   width: 150px;
 }
 
+.nav-bar div {
+  padding: 15px;
+}
+
 .nav-bar div p {
   font-size: 15px;
   font-weight: 600px;
