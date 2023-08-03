@@ -6,7 +6,6 @@ default: &default
 
   username: postgres
   password: 123$$$sss
-
   host: localhost
 
 development:
