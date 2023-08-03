@@ -2,7 +2,7 @@
 
 <a name="readme-top"></a>
 
-  <h3><b>Healthnet App</b></h3>
+  <h3>NetCare App</b></h3>
 
   <img align="center" src="Logo.png"/>
 
@@ -28,7 +28,7 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [Healthnet App] <a name="The Healthnet App helps you to find doctors and book appointment for various healthcare consultations."></a>
+# 📖 [NetCare App] <a name="The Healthnet App helps you to find doctors and book appointment for various healthcare consultations."></a>
 
 
 **[NetCare App]** is based on Ruby on Rails base app for that allows petient and doctors to get in touch and schedule consultations.
