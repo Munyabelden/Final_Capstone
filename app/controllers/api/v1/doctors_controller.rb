@@ -1,7 +1,8 @@
 class Api::V1::DoctorsController < ApplicationController
   def index
     doctors = Doctor.all
-    render json: doctors_representer(doctors).as_json(only: [:id, :name, :specialization, :bio, :image, :experience, :rate])
+    render json: doctors_representer(doctors).as_json(only: %i[id name specialization bio image experience
+                                                               rate])
   end
 
   def show
@@ -44,7 +45,7 @@ class Api::V1::DoctorsController < ApplicationController
         bio: doctor.bio,
         image: doctor.image,
         experience: doctor.experience,
-        rate: doctor.rate,
+        rate: doctor.rate
       }
     end
   end
