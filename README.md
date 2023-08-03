@@ -35,7 +35,7 @@
  
  Below is the link to the database diagram
 
-<img src="drawSQL-netcare-export-2023-08-03.png" alt="Vehicle appointment diagram" />
+<img src="drawSQL.png" alt="Vehicle appointment diagram" />
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
