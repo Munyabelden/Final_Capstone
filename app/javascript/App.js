@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container-fluid col-md-12 d-flex p-0">
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
