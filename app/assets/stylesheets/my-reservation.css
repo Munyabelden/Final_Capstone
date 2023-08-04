@@ -1,0 +1,42 @@
+.consultation-container {
+  padding: 24px;
+  margin-left: 25vw;
+}
+
+.list-container {
+  max-width: 750px;
+  margin: 44px auto;
+}
+
+.list-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid #64748b;
+  border-radius: 24px;
+  margin-bottom: 12px;
+  padding: 24px;
+}
+
+.consultation-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 38px;
+  color: #334155;
+}
+
+.consultation-type,
+.consultation-date,
+.consultation-location {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  color: #334155;
+  margin: 4px 0;
+}
+
+.consultation-type i,
+.consultation-date i,
+.consultation-location i {
+  margin-right: 6px;
+}

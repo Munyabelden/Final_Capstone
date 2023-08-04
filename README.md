@@ -2,7 +2,9 @@
 
 <a name="readme-top"></a>
 
-  <h3><b>Healthnet App</b></h3>
+  <h3>NetCare App</b></h3>
+
+  <img align="center" src="Logo.png"/>
 
 </div>
 
@@ -26,11 +28,17 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [Healthnet App] <a name="The Healthnet App helps you to find doctors and book appointment for various healthcare consultations."></a>
+# 📖 [NetCare App] <a name="The Healthnet App helps you to find doctors and book appointment for various healthcare consultations."></a>
 
 
-**[Healthnet App]** is based on Ruby Language and Rails framework.
+**[NetCare App]** is based on Ruby on Rails base app for that allows petient and doctors to get in touch and schedule consultations.
 
+ [Kanban Board](https://github.com/users/Munyabelden/projects/4/views/1?layout=board)
+ 
+ <img src="https://user-images.githubusercontent.com/104892694/254542615-4d46c327-0f12-46a4-a855-8dedf4dc7bc7.png" alt="img"/>
+ Below is the link to the database diagram
+
+<img src="drawSQL.png" alt="Vehicle appointment diagram" />
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -69,40 +77,79 @@ To get a local copy up and running, follow these steps.
 - clone this https://github.com/Munyabelden/Final_Capstone.git
 
 
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
 ### Prerequisites
 
 In order to run this project you need:
-<ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby and Ruby on Rails</a></li>
-  </ul>
-  
+
+- [ ] Ruby: [Installation Guide](https://www.ruby-lang.org/en/documentation/installation/)
+- [ ] Ruby on Rails: [Installation Guide](https://guides.rubyonrails.org/getting_started.html#installing-rails)
+- [ ] PostgreSQL: [Installation Guide](https://www.postgresql.org/docs/)
+
 ### Setup
 
 Clone this repository to your desired folder:
-<ul>
-<li>cd my-folder</li>
-<li>git clone https://github.com/Munyabelden/Final_Capstone.git</li>
-</ul>
+
+```sh
+  cd Rails_Capstone
+  git clone https://github.com/Munyabelden/Rails_Capstone.git
+```
 
 ### Install
 
 Install this project with:
-<ul>
-<li>bundle install</li>
-</ul>
+
+```sh
+  cd Rails_Capstone
+  bundle install
+```
+```sh
+  gem install rspec
+```
+```sh
+  gem install --no-document rubocop -v '>= 1.0, < 2.0' # https://docs.rubocop.org/en/stable/installation/
+```
+```sh
+  npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+```
 
 ### Usage
 
 To run the project, execute the following command:
-<ul>
-<li>rails s</li>
-</ul>
+
+```sh
+  rails db:create
+```
+```sh
+  rails db:migrate
+```
+```sh
+  rails server
+```
 
 ### Run tests
 
-To run tests, run the following command: Install through : gem install rspec
+To run tests, run the following command:
 
-Run: rspec to run tests
+```sh
+  rubocop --color
+```
+```sh
+  npx stylelint "**/*.{css,scss}"
+```
+```sh
+  rspec
+```
+### Deployment
+
+You can deploy this project using:
+
+- [ ] Use render or any other hosting of your choosing
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,7 +163,8 @@ Run: rspec to run tests
 
 👤 **Belden Mugauri**
 
-- GitHub: [@githubhandle](https://github.com/Munyabelden)
+- GitHub: [@githubhandle](https://github.com/Munyabelden/)
+- Twitter: [@twitterhandle](https://twitter.com/munyaradzi045)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/munyaradzi-mugauri-828a7b24a/)
 
 👤 **Badare Basem Simon**
@@ -137,10 +185,7 @@ Run: rspec to run tests
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
-
 ## 🔭 Future Features <a name="future-features"></a>
-
 
 - [ ] **[Navigation Bar]**
 - [ ] **[Online Consultation Integration]**
@@ -165,7 +210,7 @@ If you like this project please follow me on github
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse and my Coding partners.
+We would like to thank Murat Korkmaz on Behance for the original idea and Microverse.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -1,15 +1,194 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('./auth.css');
+@import url('./my-reservation.css');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+.nav-bar {
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  align-items: center;
+  padding-block: 5vh;
+  width: 20vw;
+  min-height: 100vh;
+  z-index: 1000;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-bar a,
+.logout-btn {
+  font-size: 16px;
+}
+
+.nav-bar a.active {
+  background-color: #8de801;
+  padding: 2px 8px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.menu-icon,
+.exit {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 32px;
+  width: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-bar img {
+  width: 150px;
+}
+
+.nav-bar div {
+  padding: 15px;
+}
+
+.nav-bar div p {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .menu-icon,
+  .exit {
+    display: block;
+    top: 15px;
+    left: 15px;
+  }
+
+  .exit {
+    position: absolute;
+    margin-top: -15px;
+    left: 30%;
+  }
+
+  .nav-bar {
+    background: #fff;
+    display: none;
+    width: 70vh;
+    min-height: 100vh;
+  }
+
+  .nav-bar.show {
+    display: block;
+  }
+
+  .consaltation-form {
+    margin: 20px auto;
+    width: 100%;
+  }
+}
+
+.nav-bar li {
+  margin: 15px;
+}
+
+.nav-bar a {
+  font-weight: 600;
+  color: #101515;
+}
+
+.cons-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url('./app/assets/images/consult.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin: 20px;
+}
+
+.consaltation-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  width: 367px;
+}
+
+.consaltation-form input,
+.consaltation-form select {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #334155;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 0.5px solid #64748b;
+  border-radius: 6px;
+}
+
+.consaltation-form button {
+  background: #8de801;
+  color: #171818;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.exit {
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 35px;
+  font-weight: 600;
+  cursor: pointer;
+}
