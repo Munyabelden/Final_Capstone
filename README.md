@@ -32,7 +32,10 @@
 
 
 **[NetCare App]** is based on Ruby on Rails base app for that allows petient and doctors to get in touch and schedule consultations.
+
+ [Kanban Board](https://github.com/users/Munyabelden/projects/4/views/1?layout=board)
  
+ <img src="https://user-images.githubusercontent.com/104892694/254542615-4d46c327-0f12-46a4-a855-8dedf4dc7bc7.png" alt="img"/>
  Below is the link to the database diagram
 
 <img src="drawSQL.png" alt="Vehicle appointment diagram" />
