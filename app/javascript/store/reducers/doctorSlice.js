@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const BASE_URL = 'http://localhost:3000/api/v1';
+const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
 export const fetchDoctors = createAsyncThunk(
   'doctors/fetchData',
@@ -24,6 +25,19 @@ export const initializeDoctors = createAsyncThunk(
       dispatch(fetchDoctors.fulfilled(data));
     } catch (err) {
       throw new Error(err.message);
+    }
+  },
+);
+
+export const addDoctor = createAsyncThunk(
+  'doctors/addDoctor',
+  async (doctorData, { rejectWithValue }) => {
+    try {
+      axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+      const response = await axios.post('http://127.0.0.1:3000/api/v1//doctors', doctorData);
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(await err.response.data);
     }
   },
 );
@@ -63,6 +77,18 @@ export const doctorSlice = createSlice({
       );
     },
     [fetchDoctors.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
+    },
+    [addDoctor.pending]: (state) => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [addDoctor.fulfilled]: (state, action) => {
+      state.doctors.push(action.payload);
+      state.isLoading = false;
+    },
+    [addDoctor.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
     },
