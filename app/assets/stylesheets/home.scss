@@ -12,11 +12,12 @@ $primary: #98bf11 !default;
 }
 
 .home {
-  width: 10vw;
+  // width: 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin-left: 0px;
 }
 
 .service-list {
@@ -127,7 +128,8 @@ i {
 @media (min-width: 801px) {
   .home {
     // align-items: center;
-    width: 80vw;
+    // width: 80vw;
+    margin-left: 35vh;
   }
 
   .singlecard {
