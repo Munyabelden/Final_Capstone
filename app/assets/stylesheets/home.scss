@@ -1,7 +1,6 @@
 $primary: #98bf11 !default;
 
-
-@mixin swiper-arrow($border-radius) {
+@mixin swiper-arrow($border-radius) {// stylelint-disable-line
   background: $primary;
   background-position: center;
   background-size: 24px;
@@ -25,7 +24,6 @@ $primary: #98bf11 !default;
   padding: 3rem 0;
   justify-content: center;
 }
-
 
 .singlecard {
   display: flex;
@@ -164,13 +162,13 @@ i {
   }
 
   .swiper-button-prev {
-    @include swiper-arrow(0% 25% 25% 0% / 50% 50% 50% 50%);
+    @include swiper-arrow(0% 25% 25% 0% / 50% 50% 50% 50%);// stylelint-disable-line
 
     background-image: url(../images/left.png);
   }
 
   .swiper-button-next {
-    @include swiper-arrow(25% 0 0 25% / 50% 50% 50% 50%);
+    @include swiper-arrow(25% 0 0 25% / 50% 50% 50% 50%);// stylelint-disable-line
 
     background-image: url(../images/right.png);
   }
