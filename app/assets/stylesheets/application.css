@@ -39,17 +39,15 @@ ul li {
 }
 
 .nav-bar {
-  position: fixed;
   top: 0;
-  left: 0;
-  bottom: 0;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: #fff;
   align-items: center;
   padding-block: 5vh;
-  width: 35vh;
+  width: 20vw;
   min-height: 100vh;
   z-index: 1000;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
