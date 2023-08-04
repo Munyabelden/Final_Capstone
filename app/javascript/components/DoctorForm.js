@@ -8,9 +8,9 @@ const DoctorForm = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: 'Dr. Mudasir Issah',
+    name: 'Dr. fullname',
     specialization: 'Physician Assistant',
-    bio: 'Dr with BSc. Physician Assistanship Ghana',
+    bio: 'short bio of Dr',
     image: '',
     experience: 2,
     rate: 15,
@@ -70,7 +70,7 @@ const DoctorForm = () => {
       <input
         type="text"
         id="experience"
-        placeholder={formData.experience}
+        placeholder="years of experience e.g 2"
         onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
       />
 
@@ -78,7 +78,7 @@ const DoctorForm = () => {
       <input
         type="number"
         id="rate"
-        placeholder={formData.rate}
+        placeholder="Rate per hour"
         onChange={(e) => setFormData({ ...formData, rate: e.target.value })}
       />
 
