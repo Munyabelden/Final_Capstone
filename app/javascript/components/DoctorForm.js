@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
-import { useDispatch,  useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchDoctors, addDoctor } from '../store/reducers/doctorSlice';
 
 const DoctorForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: 'Dr. Mudasir Issah',
     specialization: 'Physician Assistant',
@@ -11,10 +16,18 @@ const DoctorForm = () => {
     rate: 15,
   });
 
+  useEffect(() => {
+    dispatch(fetchDoctors());
+  }, [dispatch]);
+
   const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    dispatch(addDoctor(formData))
+      .then(() => {
+        navigate('/');
+      });
   };
 
   return (
@@ -37,7 +50,7 @@ const DoctorForm = () => {
         onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
       />
 
-   <label htmlFor="bio">Bio:</label>
+      <label htmlFor="bio">Bio:</label>
       <input
         type="text"
         id="bio"
@@ -45,7 +58,7 @@ const DoctorForm = () => {
         onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
       />
 
-  <label htmlFor="image">Image:</label>
+      <label htmlFor="image">Image:</label>
       <input
         type="text"
         id="image"
@@ -53,7 +66,7 @@ const DoctorForm = () => {
         onChange={(e) => setFormData({ ...formData, image: e.target.value })}
       />
 
-<label htmlFor="experience">Experience:</label>
+      <label htmlFor="experience">Experience:</label>
       <input
         type="text"
         id="experience"
@@ -61,7 +74,7 @@ const DoctorForm = () => {
         onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
       />
 
-<label htmlFor="rate">Rate ($):</label>
+      <label htmlFor="rate">Rate ($):</label>
       <input
         type="number"
         id="rate"
