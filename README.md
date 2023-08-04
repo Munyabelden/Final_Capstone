@@ -163,7 +163,8 @@ You can deploy this project using:
 
 👤 **Belden Mugauri**
 
-- GitHub: [@githubhandle](https://github.com/Munyabelden)
+- GitHub: [@githubhandle](https://github.com/Munyabelden/)
+- Twitter: [@twitterhandle](https://twitter.com/munyaradzi045)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/munyaradzi-mugauri-828a7b24a/)
 
 👤 **Badare Basem Simon**
